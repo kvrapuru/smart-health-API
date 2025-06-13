@@ -1,0 +1,1044 @@
+{
+  "users": [
+    {
+      "id": "1749485075466",
+      "username": "Krishna",
+      "personalDetails": {},
+      "goals": {
+        "calorieGoal": 1300,
+        "waterGoal": 2.5,
+        "sleepGoal": 8,
+        "exerciseGoal": 500,
+        "targetWeight": 53,
+        "weeklyWeightLoss": 0.2,
+        "dailyCalorieDeficit": null,
+        "weeklyWorkouts": 5,
+        "stepsGoal": 7500,
+        "weightGoal": 52.5,
+        "updatedAt": "2025-06-12T07:12:18.434Z",
+        "proteinGoal": 76,
+        "carbsGoal": 137,
+        "fatGoal": 45,
+        "fiberGoal": 25,
+        "sodiumLimit": 2300,
+        "sugarLimit": 50
+      },
+      "healthDetails": {
+        "conditions": [
+          "None"
+        ],
+        "medications": "None",
+        "allergies": "None",
+        "fitnessGoals": [
+          "Weight Loss",
+          "Strength"
+        ],
+        "medicalConditions": "None"
+      },
+      "foodLogs": [
+        {
+          "id": "1749507878950",
+          "name": "Rice Bowl",
+          "category": "lunch",
+          "calories": 250,
+          "meal": "lunch",
+          "timestamp": "2025-06-09T22:24:38.950Z"
+        },
+        {
+          "id": "1749507881992",
+          "name": "Yogurt",
+          "category": "snacks",
+          "calories": 120,
+          "meal": "snacks",
+          "timestamp": "2025-06-09T22:24:41.992Z"
+        },
+        {
+          "id": "1749507900563",
+          "name": "Nuts",
+          "category": "snacks",
+          "calories": 180,
+          "meal": "snacks",
+          "timestamp": "2025-06-09T22:25:00.563Z"
+        },
+        {
+          "id": "1749568213556",
+          "name": "Apple",
+          "category": "breakfast",
+          "calories": 95,
+          "meal": "breakfast",
+          "timestamp": "2025-06-10T15:10:13.556Z"
+        },
+        {
+          "id": "1749568215268",
+          "name": "Banana",
+          "category": "breakfast",
+          "calories": 105,
+          "meal": "breakfast",
+          "timestamp": "2025-06-10T15:10:15.268Z"
+        }
+      ],
+      "workoutLogs": [
+        {
+          "id": "1749506504819",
+          "name": "Walking",
+          "category": "cardio",
+          "calories": 150,
+          "icon": "🚶‍♂️",
+          "duration": "30 min",
+          "originalCalories": 150,
+          "timestamp": "2025-06-09T22:01:44.819Z"
+        },
+        {
+          "id": "1749507914302",
+          "name": "HIIT",
+          "category": "cardio",
+          "calories": 400,
+          "icon": "🔥",
+          "duration": "30 min",
+          "originalCalories": 400,
+          "timestamp": "2025-06-09T22:25:14.302Z"
+        },
+        {
+          "id": "1749507916381",
+          "name": "HIIT",
+          "category": "cardio",
+          "calories": 400,
+          "icon": "🔥",
+          "duration": "30 min",
+          "originalCalories": 400,
+          "timestamp": "2025-06-09T22:25:16.381Z"
+        },
+        {
+          "id": "1749507920729",
+          "name": "Walking",
+          "category": "cardio",
+          "calories": 150,
+          "icon": "🚶‍♂️",
+          "duration": "30 min",
+          "originalCalories": 150,
+          "timestamp": "2025-06-09T22:25:20.729Z"
+        },
+        {
+          "id": "1749507924444",
+          "name": "HIIT",
+          "category": "cardio",
+          "calories": 400,
+          "icon": "🔥",
+          "duration": "30 min",
+          "originalCalories": 400,
+          "timestamp": "2025-06-09T22:25:24.444Z"
+        }
+      ],
+      "weightLogs": [
+        {
+          "weight": 58.8,
+          "date": "Tue Jun 10 2025",
+          "timestamp": "2025-06-10T14:17:43.976Z"
+        },
+        {
+          "weight": 58.5,
+          "date": "Mon Jun 09 2025",
+          "timestamp": "2025-06-09T21:55:08.671Z"
+        },
+        {
+          "weight": 58.5,
+          "date": "Mon Jun 09 2025",
+          "timestamp": "2025-06-09T21:48:49.005Z"
+        },
+        {
+          "weight": 58.5,
+          "date": "Mon Jun 09 2025",
+          "timestamp": "2025-06-09T21:41:15.286Z"
+        },
+        {
+          "weight": 59,
+          "date": "Thu Jun 12 2025",
+          "timestamp": "2025-06-11T23:32:14.406Z"
+        }
+      ],
+      "cycleData": {
+        "lastPeriodDate": "2025-06-06",
+        "cycleLength": 32,
+        "setupDate": "2025-06-10T15:03:04.284Z",
+        "preferences": {
+          "reminderNotifications": true,
+          "trackSymptoms": true
+        }
+      },
+      "dailyNotes": [
+        {
+          "eatingFeeling": "good",
+          "activityFeeling": "energetic",
+          "mood": "happy",
+          "note": "so good",
+          "id": "1749507962341",
+          "timestamp": "2025-06-09T22:26:02.341Z"
+        },
+        {
+          "eatingFeeling": "good",
+          "activityFeeling": "energetic",
+          "mood": "happy",
+          "note": "test",
+          "id": "1749568345131",
+          "timestamp": "2025-06-10T15:12:25.131Z"
+        }
+      ],
+      "createdAt": "2025-06-09T16:04:35.466Z",
+      "updatedAt": "2025-06-12T07:12:18.434Z"
+    }
+  ],
+  "foods": [
+    {
+      "id": "1",
+      "name": "Idli",
+      "calories": 39,
+      "protein": 2,
+      "carbs": 8,
+      "fat": 0.2,
+      "category": "grains",
+      "description": "Steamed rice cake - South Indian breakfast staple"
+    },
+    {
+      "id": "2",
+      "name": "Dosa",
+      "calories": 168,
+      "protein": 4,
+      "carbs": 28,
+      "fat": 4,
+      "category": "grains",
+      "description": "Crispy fermented crepe made from rice and lentils"
+    },
+    {
+      "id": "3",
+      "name": "Chapati",
+      "calories": 104,
+      "protein": 3,
+      "carbs": 18,
+      "fat": 2,
+      "category": "grains",
+      "description": "Whole wheat flatbread"
+    },
+    {
+      "id": "4",
+      "name": "Basmati Rice",
+      "calories": 205,
+      "protein": 4,
+      "carbs": 45,
+      "fat": 0.5,
+      "category": "grains",
+      "description": "Long-grain aromatic rice"
+    },
+    {
+      "id": "5",
+      "name": "Poha",
+      "calories": 158,
+      "protein": 3,
+      "carbs": 30,
+      "fat": 2,
+      "category": "grains",
+      "description": "Flattened rice breakfast dish"
+    },
+    {
+      "id": "6",
+      "name": "Upma",
+      "calories": 220,
+      "protein": 5,
+      "carbs": 40,
+      "fat": 4,
+      "category": "grains",
+      "description": "Semolina breakfast dish with vegetables"
+    },
+    {
+      "id": "7",
+      "name": "Paneer",
+      "calories": 265,
+      "protein": 18,
+      "carbs": 6,
+      "fat": 20,
+      "category": "proteins",
+      "description": "Fresh cottage cheese"
+    },
+    {
+      "id": "8",
+      "name": "Chicken Breast",
+      "calories": 165,
+      "protein": 31,
+      "carbs": 0,
+      "fat": 3.6,
+      "category": "proteins",
+      "description": "Lean boneless chicken"
+    },
+    {
+      "id": "9",
+      "name": "Mutton",
+      "calories": 294,
+      "protein": 25,
+      "carbs": 0,
+      "fat": 21,
+      "category": "proteins",
+      "description": "Goat meat - popular in Indian cuisine"
+    },
+    {
+      "id": "10",
+      "name": "Fish (Pomfret)",
+      "calories": 96,
+      "protein": 19,
+      "carbs": 0,
+      "fat": 1,
+      "category": "proteins",
+      "description": "White fish common in Indian cooking"
+    },
+    {
+      "id": "11",
+      "name": "Eggs",
+      "calories": 155,
+      "protein": 13,
+      "carbs": 1,
+      "fat": 11,
+      "category": "proteins",
+      "description": "Two large eggs"
+    },
+    {
+      "id": "12",
+      "name": "Tofu",
+      "calories": 76,
+      "protein": 8,
+      "carbs": 2,
+      "fat": 4.8,
+      "category": "proteins",
+      "description": "Soybean curd - vegan protein"
+    },
+    {
+      "id": "13",
+      "name": "Dal (Toor)",
+      "calories": 115,
+      "protein": 8,
+      "carbs": 20,
+      "fat": 0.4,
+      "category": "proteins",
+      "description": "Pigeon pea lentils"
+    },
+    {
+      "id": "14",
+      "name": "Rajma",
+      "calories": 127,
+      "protein": 9,
+      "carbs": 23,
+      "fat": 0.5,
+      "category": "proteins",
+      "description": "Red kidney beans"
+    },
+    {
+      "id": "15",
+      "name": "Chana",
+      "calories": 164,
+      "protein": 8,
+      "carbs": 27,
+      "fat": 2.6,
+      "category": "proteins",
+      "description": "Chickpeas/garbanzo beans"
+    },
+    {
+      "id": "16",
+      "name": "Spinach",
+      "calories": 23,
+      "protein": 3,
+      "carbs": 4,
+      "fat": 0.4,
+      "category": "vegetables",
+      "description": "Fresh green leafy vegetable"
+    },
+    {
+      "id": "17",
+      "name": "Okra (Bhindi)",
+      "calories": 33,
+      "protein": 2,
+      "carbs": 7,
+      "fat": 0.2,
+      "category": "vegetables",
+      "description": "Green pod vegetable"
+    },
+    {
+      "id": "18",
+      "name": "Cauliflower",
+      "calories": 25,
+      "protein": 2,
+      "carbs": 5,
+      "fat": 0.3,
+      "category": "vegetables",
+      "description": "White flowered vegetable"
+    },
+    {
+      "id": "19",
+      "name": "Eggplant (Brinjal)",
+      "calories": 25,
+      "protein": 1,
+      "carbs": 6,
+      "fat": 0.2,
+      "category": "vegetables",
+      "description": "Purple vegetable common in curries"
+    },
+    {
+      "id": "20",
+      "name": "Bottle Gourd",
+      "calories": 14,
+      "protein": 0.6,
+      "carbs": 3,
+      "fat": 0.02,
+      "category": "vegetables",
+      "description": "Light green gourd vegetable"
+    },
+    {
+      "id": "21",
+      "name": "Potato",
+      "calories": 77,
+      "protein": 2,
+      "carbs": 17,
+      "fat": 0.1,
+      "category": "vegetables",
+      "description": "Starchy root vegetable"
+    },
+    {
+      "id": "22",
+      "name": "Tomato",
+      "calories": 18,
+      "protein": 0.9,
+      "carbs": 4,
+      "fat": 0.2,
+      "category": "vegetables",
+      "description": "Red acidic fruit used as vegetable"
+    },
+    {
+      "id": "23",
+      "name": "Onion",
+      "calories": 40,
+      "protein": 1,
+      "carbs": 9,
+      "fat": 0.1,
+      "category": "vegetables",
+      "description": "Bulb vegetable - cooking staple"
+    },
+    {
+      "id": "24",
+      "name": "Carrot",
+      "calories": 41,
+      "protein": 0.9,
+      "carbs": 10,
+      "fat": 0.2,
+      "category": "vegetables",
+      "description": "Orange root vegetable"
+    },
+    {
+      "id": "25",
+      "name": "Apple",
+      "calories": 95,
+      "protein": 0.5,
+      "carbs": 25,
+      "fat": 0.3,
+      "category": "fruits",
+      "description": "Crisp red or green fruit"
+    },
+    {
+      "id": "26",
+      "name": "Banana",
+      "calories": 105,
+      "protein": 1,
+      "carbs": 27,
+      "fat": 0.4,
+      "category": "fruits",
+      "description": "Sweet yellow tropical fruit"
+    },
+    {
+      "id": "27",
+      "name": "Mango",
+      "calories": 135,
+      "protein": 1,
+      "carbs": 35,
+      "fat": 0.6,
+      "category": "fruits",
+      "description": "King of fruits - sweet and juicy"
+    },
+    {
+      "id": "28",
+      "name": "Orange",
+      "calories": 62,
+      "protein": 1,
+      "carbs": 15,
+      "fat": 0.2,
+      "category": "fruits",
+      "description": "Citrus fruit rich in vitamin C"
+    },
+    {
+      "id": "29",
+      "name": "Grapes",
+      "calories": 104,
+      "protein": 1,
+      "carbs": 27,
+      "fat": 0.2,
+      "category": "fruits",
+      "description": "Small sweet clustered fruits"
+    },
+    {
+      "id": "30",
+      "name": "Papaya",
+      "calories": 43,
+      "protein": 0.5,
+      "carbs": 11,
+      "fat": 0.3,
+      "category": "fruits",
+      "description": "Orange tropical fruit"
+    },
+    {
+      "id": "31",
+      "name": "Guava",
+      "calories": 68,
+      "protein": 3,
+      "carbs": 14,
+      "fat": 1,
+      "category": "fruits",
+      "description": "Green tropical fruit with seeds"
+    },
+    {
+      "id": "32",
+      "name": "Pomegranate",
+      "calories": 134,
+      "protein": 3,
+      "carbs": 30,
+      "fat": 2,
+      "category": "fruits",
+      "description": "Red fruit with ruby-like seeds"
+    },
+    {
+      "id": "33",
+      "name": "Yogurt",
+      "calories": 100,
+      "protein": 10,
+      "carbs": 12,
+      "fat": 0.4,
+      "category": "dairy",
+      "description": "Plain low-fat yogurt"
+    },
+    {
+      "id": "34",
+      "name": "Milk",
+      "calories": 83,
+      "protein": 8,
+      "carbs": 12,
+      "fat": 0.2,
+      "category": "dairy",
+      "description": "Skim milk"
+    },
+    {
+      "id": "35",
+      "name": "Ghee",
+      "calories": 112,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 13,
+      "category": "dairy",
+      "description": "Clarified butter - 1 tablespoon"
+    },
+    {
+      "id": "36",
+      "name": "Butter",
+      "calories": 102,
+      "protein": 0.1,
+      "carbs": 0,
+      "fat": 12,
+      "category": "dairy",
+      "description": "Regular butter - 1 tablespoon"
+    },
+    {
+      "id": "37",
+      "name": "Cheese",
+      "calories": 113,
+      "protein": 7,
+      "carbs": 1,
+      "fat": 9,
+      "category": "dairy",
+      "description": "Cheddar cheese - 1 oz"
+    },
+    {
+      "id": "38",
+      "name": "Almonds",
+      "calories": 164,
+      "protein": 6,
+      "carbs": 6,
+      "fat": 14,
+      "category": "nuts",
+      "description": "Raw almonds - 1 oz"
+    },
+    {
+      "id": "39",
+      "name": "Cashews",
+      "calories": 157,
+      "protein": 5,
+      "carbs": 9,
+      "fat": 12,
+      "category": "nuts",
+      "description": "Raw cashews - 1 oz"
+    },
+    {
+      "id": "40",
+      "name": "Walnuts",
+      "calories": 185,
+      "protein": 4,
+      "carbs": 4,
+      "fat": 18,
+      "category": "nuts",
+      "description": "Raw walnuts - 1 oz"
+    },
+    {
+      "id": "41",
+      "name": "Peanuts",
+      "calories": 161,
+      "protein": 7,
+      "carbs": 5,
+      "fat": 14,
+      "category": "nuts",
+      "description": "Raw peanuts - 1 oz"
+    },
+    {
+      "id": "42",
+      "name": "Pistachios",
+      "calories": 159,
+      "protein": 6,
+      "carbs": 8,
+      "fat": 13,
+      "category": "nuts",
+      "description": "Raw pistachios - 1 oz"
+    },
+    {
+      "id": "43",
+      "name": "Coconut Oil",
+      "calories": 121,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 14,
+      "category": "nuts",
+      "description": "Virgin coconut oil - 1 tablespoon"
+    },
+    {
+      "id": "44",
+      "name": "Water",
+      "calories": 0,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 0,
+      "category": "beverages",
+      "description": "Plain water"
+    },
+    {
+      "id": "45",
+      "name": "Green Tea",
+      "calories": 2,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 0,
+      "category": "beverages",
+      "description": "Unsweetened green tea"
+    },
+    {
+      "id": "46",
+      "name": "Black Coffee",
+      "calories": 2,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 0,
+      "category": "beverages",
+      "description": "Black coffee without sugar"
+    },
+    {
+      "id": "47",
+      "name": "Lassi",
+      "calories": 180,
+      "protein": 8,
+      "carbs": 25,
+      "fat": 5,
+      "category": "beverages",
+      "description": "Sweet yogurt drink"
+    },
+    {
+      "id": "48",
+      "name": "Coconut Water",
+      "calories": 46,
+      "protein": 2,
+      "carbs": 9,
+      "fat": 0.5,
+      "category": "beverages",
+      "description": "Fresh tender coconut water"
+    },
+    {
+      "id": "49",
+      "name": "Turmeric",
+      "calories": 24,
+      "protein": 1,
+      "carbs": 4,
+      "fat": 0.7,
+      "category": "spices",
+      "description": "Ground turmeric - 1 tablespoon"
+    },
+    {
+      "id": "50",
+      "name": "Cumin",
+      "calories": 22,
+      "protein": 1,
+      "carbs": 3,
+      "fat": 1.3,
+      "category": "spices",
+      "description": "Ground cumin - 1 tablespoon"
+    },
+    {
+      "id": "51",
+      "name": "Coriander",
+      "calories": 15,
+      "protein": 1,
+      "carbs": 3,
+      "fat": 0.9,
+      "category": "spices",
+      "description": "Ground coriander - 1 tablespoon"
+    },
+    {
+      "id": "52",
+      "name": "Ginger",
+      "calories": 17,
+      "protein": 0.4,
+      "carbs": 4,
+      "fat": 0.2,
+      "category": "spices",
+      "description": "Fresh ginger - 1 tablespoon"
+    },
+    {
+      "id": "53",
+      "name": "Garlic",
+      "calories": 13,
+      "protein": 0.6,
+      "carbs": 3,
+      "fat": 0,
+      "category": "spices",
+      "description": "Fresh garlic - 1 tablespoon"
+    },
+    {
+      "id": "54",
+      "name": "Red Chili Powder",
+      "calories": 17,
+      "protein": 0.9,
+      "carbs": 3,
+      "fat": 0.9,
+      "category": "spices",
+      "description": "Ground red chili - 1 tablespoon"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "Walking",
+      "category": "cardio",
+      "calories": 150,
+      "icon": "🚶‍♂️",
+      "duration": "30 min"
+    },
+    {
+      "id": "2",
+      "name": "Running",
+      "category": "cardio",
+      "calories": 300,
+      "icon": "🏃‍♀️",
+      "duration": "30 min"
+    },
+    {
+      "id": "3",
+      "name": "Cycling",
+      "category": "cardio",
+      "calories": 250,
+      "icon": "🚴‍♂️",
+      "duration": "30 min"
+    },
+    {
+      "id": "4",
+      "name": "Swimming",
+      "category": "cardio",
+      "calories": 400,
+      "icon": "🏊‍♀️",
+      "duration": "30 min"
+    },
+    {
+      "id": "5",
+      "name": "Yoga",
+      "category": "flexibility",
+      "calories": 120,
+      "icon": "🧘‍♀️",
+      "duration": "30 min"
+    },
+    {
+      "id": "6",
+      "name": "Weight Lifting",
+      "category": "strength",
+      "calories": 180,
+      "icon": "🏋️‍♂️",
+      "duration": "30 min"
+    },
+    {
+      "id": "7",
+      "name": "Push-ups",
+      "category": "strength",
+      "calories": 100,
+      "icon": "💪",
+      "duration": "15 min"
+    },
+    {
+      "id": "8",
+      "name": "Jump Rope",
+      "category": "cardio",
+      "calories": 220,
+      "icon": "🪢",
+      "duration": "20 min"
+    },
+    {
+      "id": "9",
+      "name": "Dancing",
+      "category": "cardio",
+      "calories": 200,
+      "icon": "💃",
+      "duration": "30 min"
+    },
+    {
+      "id": "10",
+      "name": "HIIT",
+      "category": "cardio",
+      "calories": 400,
+      "icon": "🔥",
+      "duration": "30 min"
+    }
+  ],
+  "foodLogs": [
+    {
+      "id": "20a9",
+      "userId": "Krishna",
+      "foodId": "1",
+      "foodName": "Idli",
+      "quantity": 2,
+      "calories": 1,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 0,
+      "date": "2025-06-10",
+      "timestamp": "2025-06-10T21:56:02.881Z"
+    },
+    {
+      "id": "a0f4",
+      "userId": "Krishna",
+      "foodId": "16",
+      "foodName": "Spinach",
+      "quantity": 100,
+      "calories": 23,
+      "protein": 3,
+      "carbs": 4,
+      "fat": 0,
+      "date": "2025-06-10",
+      "timestamp": "2025-06-10T21:56:36.957Z"
+    },
+    {
+      "id": "fd75",
+      "userId": "Krishna",
+      "foodId": "2",
+      "foodName": "Dosa",
+      "quantity": 200,
+      "calories": 336,
+      "protein": 8,
+      "carbs": 56,
+      "fat": 8,
+      "date": "2025-06-10",
+      "timestamp": "2025-06-10T22:00:36.127Z"
+    },
+    {
+      "id": "3af6",
+      "userId": "Krishna",
+      "foodId": "8",
+      "foodName": "Chicken Breast",
+      "quantity": 100,
+      "calories": 165,
+      "protein": 31,
+      "carbs": 0,
+      "fat": 3.6,
+      "date": "2025-06-10",
+      "timestamp": "2025-06-10T22:03:23.917Z"
+    },
+    {
+      "id": "7897",
+      "userId": "Krishna",
+      "foodId": "26",
+      "foodName": "Banana",
+      "quantity": 100,
+      "calories": 105,
+      "protein": 1,
+      "carbs": 27,
+      "fat": 0.4,
+      "date": "2025-06-10",
+      "timestamp": "2025-06-10T22:05:59.817Z"
+    },
+    {
+      "id": "350f",
+      "userId": "Krishna",
+      "foodId": "2",
+      "foodName": "Dosa",
+      "quantity": 200,
+      "calories": 336,
+      "protein": 8,
+      "carbs": 56,
+      "fat": 8,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T22:09:00.984Z"
+    },
+    {
+      "id": "8c5d",
+      "userId": "1749485075466",
+      "foodId": "1",
+      "foodName": "Idli",
+      "quantity": 200,
+      "calories": 78,
+      "protein": 4,
+      "carbs": 16,
+      "fat": 0.4,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T22:51:12.179Z"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "24c7",
+      "userId": "Krishna",
+      "activity": "Yoga",
+      "duration": 30,
+      "intensity": "moderate",
+      "calories": 90,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T15:29:28.845Z"
+    },
+    {
+      "id": "6130",
+      "userId": "Krishna",
+      "activity": "Stretching",
+      "duration": 27,
+      "intensity": "moderate",
+      "calories": 81,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T15:29:42.242Z"
+    },
+    {
+      "id": "71d6",
+      "userId": "Krishna",
+      "activity": "Walking",
+      "duration": 60,
+      "intensity": "moderate",
+      "calories": 300,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T22:09:35.083Z"
+    },
+    {
+      "id": "827b",
+      "userId": "1749485075466",
+      "activity": "Running",
+      "duration": 30,
+      "intensity": "moderate",
+      "calories": 360,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T22:50:55.759Z"
+    }
+  ],
+  "weightLogs": [
+    {
+      "id": "92a0",
+      "userId": "Krishna",
+      "weight": 58,
+      "targetWeight": 53,
+      "date": "2025-06-10",
+      "timestamp": "2025-06-10T22:05:07.146Z"
+    },
+    {
+      "id": "2a55",
+      "userId": "1749485075466",
+      "weight": 58,
+      "targetWeight": 53,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T22:45:27.208Z"
+    },
+    {
+      "id": "ffac",
+      "userId": "1749485075466",
+      "weight": 58.8,
+      "targetWeight": 52,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T23:43:16.777Z"
+    },
+    {
+      "id": "c78b",
+      "userId": "1749485075466",
+      "weight": 58.8,
+      "targetWeight": 53.5,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T23:46:38.254Z"
+    },
+    {
+      "id": "aa53",
+      "userId": "1749485075466",
+      "weight": 60,
+      "targetWeight": 53.5,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T23:50:03.839Z"
+    },
+    {
+      "id": "e337",
+      "userId": "1749485075466",
+      "weight": 58.6,
+      "targetWeight": 52.5,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T23:53:26.213Z"
+    }
+  ],
+  "cycleData": [
+    {
+      "id": 1749679823827,
+      "userId": "Krishna",
+      "lastPeriodDate": "2025-06-06",
+      "cycleLength": 28,
+      "periodLength": 5,
+      "currentDay": 6,
+      "phase": "follicular",
+      "createdAt": "2025-06-11T22:10:23.827Z"
+    }
+  ],
+  "dailyNotes": [],
+  "waterLogs": [
+    {
+      "id": "test1",
+      "userId": "1749485075466",
+      "amount": 0.5,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749685781098",
+      "userId": "1749485075466",
+      "amount": 1,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T23:49:41.098Z"
+    }
+  ],
+  "stepsLogs": [
+    {
+      "id": "test2",
+      "userId": "1749485075466",
+      "steps": 2000,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749685788430",
+      "userId": "1749485075466",
+      "steps": 3000,
+      "date": "2025-06-11",
+      "timestamp": "2025-06-11T23:49:48.430Z"
+    }
+  ]
+}

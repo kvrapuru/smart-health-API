@@ -1,0 +1,7 @@
+# Build artifacts
+target/
+*.jar
+
+# Log files
+*.log
+spring-debug.log
