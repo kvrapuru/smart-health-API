@@ -33,6 +33,19 @@ public class WeightLog {
     @com.fasterxml.jackson.annotation.JsonProperty("unit")
     private String unit = "KG";
 
+    // Manual getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
     public void setUserId(Long userId) {
         this.userId = userId;
     }
@@ -41,15 +54,31 @@ public class WeightLog {
         return weight;
     }
 
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
     public Double getTargetWeight() {
         return targetWeight;
+    }
+
+    public void setTargetWeight(Double targetWeight) {
+        this.targetWeight = targetWeight;
     }
 
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public String getUnit() {
         return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 } 

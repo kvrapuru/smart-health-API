@@ -35,7 +35,7 @@ VALUES
 (2, 2, '2024-06-10 13:00:00', 1, 'Lunch', 'Chicken breast for lunch');
 
 -- Insert sample cycle data
-INSERT INTO cycle_data (user_id, start_date, end_date, phase, symptoms, mood, notes)
+INSERT INTO cycle_data (user_id, start_date, end_date, phase, symptoms, mood, notes, cycle_length, period_length)
 VALUES
-(1, '2024-06-01', '2024-06-05', 'Menstrual', 'Cramps', 'Tired', 'Rested at home'),
-(1, '2024-06-06', '2024-06-14', 'Follicular', 'Energetic', 'Happy', 'Felt good');
+(1, '2024-06-01', '2024-06-05', 'Menstrual', 'Cramps', 'Tired', 'Rested at home', 28, 5),
+(1, '2024-06-06', '2024-06-14', 'Follicular', 'Energetic', 'Happy', 'Felt good', 28, 5);

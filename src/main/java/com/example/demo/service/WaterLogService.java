@@ -4,6 +4,7 @@ import com.example.demo.model.WaterLog;
 import com.example.demo.repository.WaterLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -13,6 +14,10 @@ public class WaterLogService {
 
     public List<WaterLog> getWaterLogsByUserId(Long userId) {
         return waterLogRepository.findByUserIdOrderByTimestampDesc(userId);
+    }
+
+    public List<WaterLog> getWaterLogsByUserIdAndDate(Long userId, LocalDateTime start, LocalDateTime end) {
+        return waterLogRepository.findByUserIdAndTimestampBetweenOrderByTimestampDesc(userId, start, end);
     }
 
     public WaterLog addWaterLog(WaterLog waterLog) {

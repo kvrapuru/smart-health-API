@@ -21,7 +21,16 @@ public class StepsLog {
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    // Manual getters since Lombok @Data isn't working
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
+
+    public Integer getSteps() { return steps; }
+    public void setSteps(Integer steps) { this.steps = steps; }
+
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
 } 

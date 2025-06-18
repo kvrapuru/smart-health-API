@@ -4,6 +4,7 @@ import com.example.demo.model.StepsLog;
 import com.example.demo.repository.StepsLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -13,6 +14,10 @@ public class StepsLogService {
 
     public List<StepsLog> getStepsLogsByUserId(Long userId) {
         return stepsLogRepository.findByUserIdOrderByTimestampDesc(userId);
+    }
+
+    public List<StepsLog> getStepsLogsByUserIdAndDate(Long userId, LocalDateTime start, LocalDateTime end) {
+        return stepsLogRepository.findByUserIdAndTimestampBetweenOrderByTimestampDesc(userId, start, end);
     }
 
     public StepsLog addStepsLog(StepsLog stepsLog) {

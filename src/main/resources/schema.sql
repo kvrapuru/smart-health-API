@@ -86,6 +86,8 @@ CREATE TABLE IF NOT EXISTS cycle_data (
     symptoms TEXT,
     mood VARCHAR(50),
     notes TEXT,
+    cycle_length INTEGER,
+    period_length INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 

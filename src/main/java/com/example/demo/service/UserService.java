@@ -48,9 +48,33 @@ public class UserService {
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated()) {
-            User user = (User) authentication.getPrincipal();
-            logger.info("Retrieved current user: {}", user);
-            return user;
+            Object principal = authentication.getPrincipal();
+            logger.info("Authentication principal type: {}", principal.getClass().getName());
+            
+            if (principal instanceof User) {
+                User user = (User) principal;
+                logger.info("Retrieved current user: {}", user);
+                return user;
+            } else if (principal instanceof org.springframework.security.core.userdetails.UserDetails) {
+                // Handle UserDetails from JWT authentication
+                org.springframework.security.core.userdetails.UserDetails userDetails = 
+                    (org.springframework.security.core.userdetails.UserDetails) principal;
+                String username = userDetails.getUsername();
+                logger.info("Retrieved username from UserDetails: {}", username);
+                
+                Optional<User> userOptional = userRepository.findByUsername(username);
+                if (userOptional.isPresent()) {
+                    User user = userOptional.get();
+                    logger.info("Retrieved current user from repository: {}", user);
+                    return user;
+                } else {
+                    logger.error("User not found in repository for username: {}", username);
+                    throw new RuntimeException("User not found in repository");
+                }
+            } else {
+                logger.error("Unexpected principal type: {}", principal.getClass().getName());
+                throw new RuntimeException("Unexpected authentication principal type");
+            }
         }
         logger.error("No authenticated user found");
         throw new RuntimeException("No authenticated user found");

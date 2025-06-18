@@ -27,7 +27,19 @@ public class WaterLog {
     @com.fasterxml.jackson.annotation.JsonProperty("unit")
     private String unit = "ML";
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    // Manual getters since Lombok @Data isn't working
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
+
+    public Double getAmount() { return amount; }
+    public void setAmount(Double amount) { this.amount = amount; }
+
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
+
+    public String getUnit() { return unit; }
+    public void setUnit(String unit) { this.unit = unit; }
 } 

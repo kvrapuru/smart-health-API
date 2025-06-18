@@ -25,11 +25,12 @@ import com.example.demo.dto.UserResponse;
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "*")
-@Tag(name = "User Management", description = "User authentication and profile management APIs")
+@Tag(name = "Authentication", description = "User registration, login, and authentication endpoints")
 public class AuthController {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
@@ -107,6 +108,13 @@ public class AuthController {
     }
 
     // Alias endpoint for /api/users/login to support client expectation
+    @Operation(summary = "Login user (alias)", description = "Alias endpoint for login - same as /api/users/login")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "User authenticated successfully",
+            content = @Content(schema = @Schema(implementation = LoginResponse.class))),
+        @ApiResponse(responseCode = "401", description = "Invalid credentials",
+            content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+    })
     @PostMapping(path = "/api/users/login")
     public ResponseEntity<?> loginAlias(@RequestBody LoginRequest request) {
         return login(request);
@@ -127,6 +135,48 @@ public class AuthController {
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             logger.error("Failed to get current user", e);
+            return ResponseEntity.badRequest().body(new ErrorResponse("Failed to get user", e.getMessage()));
+        }
+    }
+
+    @Operation(summary = "Get user by ID", description = "Returns a specific user's profile by ID (user can only access their own data or admin can access any)")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "User retrieved successfully",
+            content = @Content(schema = @Schema(implementation = UserResponse.class))),
+        @ApiResponse(responseCode = "401", description = "User not authenticated"),
+        @ApiResponse(responseCode = "403", description = "Access denied - can only access own data"),
+        @ApiResponse(responseCode = "404", description = "User not found")
+    })
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable Long id) {
+        try {
+            User currentUser = userService.getCurrentUser();
+            
+            // Security check: user can only access their own data or admin can access any data
+            if (!currentUser.getId().equals(id)) {
+                // Check if current user has admin role
+                boolean isAdmin = currentUser.getAuthorities().stream()
+                    .anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"));
+                
+                if (!isAdmin) {
+                    logger.warn("User {} attempted to access data for user {}", 
+                        currentUser.getUsername(), id);
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body(new ErrorResponse("Access denied", "You can only access your own data"));
+                }
+            }
+            
+            Optional<User> userOptional = userService.findById(id);
+            if (userOptional.isEmpty()) {
+                logger.warn("User not found with ID: {}", id);
+                return ResponseEntity.notFound().build();
+            }
+            
+            User user = userOptional.get();
+            UserResponse response = UserResponse.fromUser(user);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            logger.error("Failed to get user with ID: {}", id, e);
             return ResponseEntity.badRequest().body(new ErrorResponse("Failed to get user", e.getMessage()));
         }
     }
