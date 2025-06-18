@@ -8,11 +8,18 @@ import com.example.demo.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/api")
+@Tag(name = "User Profile", description = "User profile management APIs")
 public class UserProfileController {
 
     @Autowired
@@ -23,30 +30,34 @@ public class UserProfileController {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
-    @GetMapping
-    public ResponseEntity<?> getUserProfile(@RequestHeader("Authorization") String token) {
+    @Operation(summary = "Get current user profile", description = "Retrieves the profile of the currently authenticated user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved user profile",
+            content = @Content(schema = @Schema(implementation = UserProfile.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Error retrieving profile",
+            content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+    })
+    @GetMapping("/profile")
+    public ResponseEntity<?> getUserProfile() {
         try {
-            // User user = userService.getUserFromToken(token); // JWT removed, implement user retrieval as needed
-            return ResponseEntity.ok(userService.getUserFromToken(token));
+            User user = userService.getCurrentUser();
+            UserProfile profile = userProfileService.getUserProfile(user.getId(), LocalDateTime.now());
+            return ResponseEntity.ok(profile);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new ErrorResponse("Failed to get profile", e.getMessage()));
         }
     }
 
     @PutMapping
-    public ResponseEntity<?> updateUserProfile(
-            @RequestHeader("Authorization") String token,
-            @RequestBody UserProfileUpdateRequest request) {
+    public ResponseEntity<?> updateUserProfile(@RequestBody UserProfileUpdateRequest request) {
         try {
-            // User user = userService.getUserFromToken(token); // JWT removed, implement user retrieval as needed
-            User user = userService.getUserFromToken(token);
+            User user = userService.getCurrentUser();
             user.setName(request.getName());
             user.setGender(request.getGender());
-            user.setDateOfBirth(request.getDateOfBirth() != null ? LocalDateTime.parse(request.getDateOfBirth()) : null);
             user.setHeight(request.getHeight());
             user.setHeightUnit(request.getHeightUnit());
             user.setWeightUnit(request.getWeightUnit());
-            
             User updatedUser = userService.updateUser(user);
             return ResponseEntity.ok(updatedUser);
         } catch (Exception e) {
@@ -72,10 +83,6 @@ public class UserProfileController {
     @PostMapping
     public ResponseEntity<?> createProfile(@RequestBody UserProfile profile) {
         try {
-            if (profile.getDateOfBirth() != null) {
-                LocalDateTime dob = LocalDateTime.parse(profile.getDateOfBirth().toString(), formatter);
-                profile.setDateOfBirth(dob);
-            }
             UserProfile savedProfile = userProfileService.createProfile(profile);
             return ResponseEntity.ok(savedProfile);
         } catch (Exception e) {
@@ -87,7 +94,6 @@ public class UserProfileController {
 class UserProfileUpdateRequest {
     private String name;
     private String gender;
-    private String dateOfBirth;
     private Double height;
     private String heightUnit;
     private String weightUnit;
@@ -107,14 +113,6 @@ class UserProfileUpdateRequest {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
     public Double getHeight() {

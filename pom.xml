@@ -64,15 +64,7 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- Google OAuth -->
-    <!-- Remove Google API client dependencies -->
 
-    <!-- Google HTTP Client Jackson2 for GoogleIdToken verification -->
-    <dependency>
-      <groupId>com.google.http-client</groupId>
-      <artifactId>google-http-client-jackson2</artifactId>
-      <version>1.43.3</version>
-    </dependency>
 
     <!-- Lombok -->
     <dependency>
@@ -92,6 +84,15 @@
       <artifactId>spring-security-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <!-- SpringDoc OpenAPI -->
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+
+
   </dependencies>
   <build>
     <plugins>

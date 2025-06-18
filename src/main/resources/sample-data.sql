@@ -1,8 +1,8 @@
 -- Insert sample users
-INSERT INTO users (name, email, password, google_id, profile_picture, gender, date_of_birth, height, height_unit, weight_unit, created_at, updated_at)
+INSERT INTO users (username, name, profile_picture, gender, date_of_birth, height, height_unit, weight_unit, created_at, updated_at)
 VALUES
-('Krishna', 'Krishna@gmail.com', '$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a', 'krishna1234', NULL, 'Female', '1990-05-10 00:00:00', 165, 'CM', 'KG', NOW(), NOW()),
-('Bob Johnson', 'bob@example.com', '$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a', 'bob456', NULL, 'Male', '1985-08-20 00:00:00', 180, 'CM', 'KG', NOW(), NOW());
+('Krishna', 'Krishna', NULL, 'Female', '1990-05-10 00:00:00', 165, 'CM', 'KG', NOW(), NOW()),
+('BobJohnson', 'Bob Johnson', NULL, 'Male', '1985-08-20 00:00:00', 180, 'CM', 'KG', NOW(), NOW());
 
 -- Insert sample activities
 INSERT INTO activity (name, description, calories_burned_per_hour, category, intensity)

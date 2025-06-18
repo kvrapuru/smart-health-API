@@ -1,10 +1,8 @@
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    google_id VARCHAR(255),
+    username VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255),
     profile_picture VARCHAR(255),
     gender VARCHAR(50),
     date_of_birth DATETIME,
@@ -88,5 +86,35 @@ CREATE TABLE IF NOT EXISTS cycle_data (
     symptoms TEXT,
     mood VARCHAR(50),
     notes TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Weight Log table
+CREATE TABLE IF NOT EXISTS weight_log (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    weight DOUBLE NOT NULL,
+    target_weight DOUBLE,
+    timestamp DATETIME NOT NULL,
+    unit VARCHAR(10) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Water Log table
+CREATE TABLE IF NOT EXISTS water_log (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    amount DOUBLE NOT NULL,
+    timestamp DATETIME NOT NULL,
+    unit VARCHAR(10) NOT NULL DEFAULT 'ML',
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Steps Log table
+CREATE TABLE IF NOT EXISTS steps_log (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    steps INTEGER NOT NULL,
+    timestamp DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ); 

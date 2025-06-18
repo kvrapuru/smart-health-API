@@ -8,6 +8,12 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 import java.time.LocalDateTime;
@@ -15,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/api/goals")
+@Tag(name = "User Goals", description = "User goals management APIs")
 public class UserGoalController {
 
     @Autowired
@@ -25,62 +32,63 @@ public class UserGoalController {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
+    @Operation(summary = "Get user goals", description = "Retrieves all goals for the current user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved user goals",
+            content = @Content(schema = @Schema(implementation = UserGoal.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required")
+    })
     @GetMapping
-    public ResponseEntity<?> getUserGoals(@RequestHeader("Authorization") String token) {
-        try {
-            User user = userService.getUserFromToken(token);
-            List<UserGoal> goals = userGoalService.getUserGoals(user.getId());
-            return ResponseEntity.ok(goals);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new ErrorResponse("Failed to get goals", e.getMessage()));
-        }
+    public ResponseEntity<List<UserGoal>> getUserGoals() {
+        User user = userService.getCurrentUser();
+        return ResponseEntity.ok(userGoalService.getUserGoals(user.getId()));
     }
 
+    @Operation(summary = "Create user goal", description = "Creates a new goal for the current user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully created user goal",
+            content = @Content(schema = @Schema(implementation = UserGoal.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Invalid goal data")
+    })
     @PostMapping
-    public ResponseEntity<?> createGoal(@RequestBody UserGoal goal) {
+    public ResponseEntity<?> createUserGoal(@RequestBody UserGoal goal) {
         try {
-            if (goal.getStartDate() != null) {
-                goal.setStartDate(LocalDateTime.parse(goal.getStartDate().toString(), formatter));
-            }
-            if (goal.getEndDate() != null) {
-                goal.setEndDate(LocalDateTime.parse(goal.getEndDate().toString(), formatter));
-            }
-            UserGoal savedGoal = userGoalService.createGoal(goal);
-            return ResponseEntity.ok(savedGoal);
+            User user = userService.getCurrentUser();
+            goal.setUserId(user.getId());
+            return ResponseEntity.ok(userGoalService.createUserGoal(goal));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new ErrorResponse("Bad Request", e.getMessage()));
+            return ResponseEntity.badRequest().body(new ErrorResponse("Failed to create goal", e.getMessage()));
         }
     }
 
+    @Operation(summary = "Update user goal", description = "Updates an existing goal for the current user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully updated user goal",
+            content = @Content(schema = @Schema(implementation = UserGoal.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Invalid goal data")
+    })
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateGoal(@PathVariable Long id, @RequestBody UserGoal goal) {
+    public ResponseEntity<?> updateUserGoal(@PathVariable Long id, @RequestBody UserGoal goal) {
         try {
-            if (goal.getStartDate() != null) {
-                goal.setStartDate(LocalDateTime.parse(goal.getStartDate().toString(), formatter));
-            }
-            if (goal.getEndDate() != null) {
-                goal.setEndDate(LocalDateTime.parse(goal.getEndDate().toString(), formatter));
-            }
-            UserGoal updatedGoal = userGoalService.updateGoal(id, goal);
-            return ResponseEntity.ok(updatedGoal);
+            goal.setId(id);
+            return ResponseEntity.ok(userGoalService.updateUserGoal(goal));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new ErrorResponse("Bad Request", e.getMessage()));
+            return ResponseEntity.badRequest().body(new ErrorResponse("Failed to update goal", e.getMessage()));
         }
     }
 
-    @DeleteMapping("/{goalId}")
-    public ResponseEntity<?> deleteUserGoal(
-            @RequestHeader("Authorization") String token,
-            @PathVariable Long goalId) {
+    @Operation(summary = "Delete user goal", description = "Deletes a goal for the current user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully deleted user goal"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Invalid goal id")
+    })
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteUserGoal(@PathVariable Long id) {
         try {
-            User user = userService.getUserFromToken(token);
-            UserGoal goal = userGoalService.getGoal(goalId);
-            
-            if (!goal.getUser().getId().equals(user.getId())) {
-                return ResponseEntity.status(403).body(new ErrorResponse("Forbidden", "You don't have permission to delete this goal"));
-            }
-
-            userGoalService.deleteGoal(goalId);
+            userGoalService.deleteUserGoal(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new ErrorResponse("Failed to delete goal", e.getMessage()));

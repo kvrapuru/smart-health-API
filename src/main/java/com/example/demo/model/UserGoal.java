@@ -10,30 +10,16 @@ public class UserGoal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @Column(nullable = false)
-    private String goalType; // WEIGHT, NUTRITION, WORKOUT, WATER, STEPS
-
-    @Column(nullable = false)
-    private Double targetValue;
-
-    @Column(nullable = false)
-    private LocalDateTime startDate;
-
-    @Column(nullable = false)
-    private LocalDateTime endDate;
-
-    @Column
+    private String title;
     private String description;
-
-    @Column(nullable = false)
-    private String status; // ACTIVE, COMPLETED, ABANDONED
-
-    @Column
-    private LocalDateTime completedDate;
+    private String status;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     // Getters and Setters
     public Long getId() {
@@ -44,44 +30,20 @@ public class UserGoal {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getGoalType() {
-        return goalType;
+    public String getTitle() {
+        return title;
     }
 
-    public void setGoalType(String goalType) {
-        this.goalType = goalType;
-    }
-
-    public Double getTargetValue() {
-        return targetValue;
-    }
-
-    public void setTargetValue(Double targetValue) {
-        this.targetValue = targetValue;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -100,11 +62,35 @@ public class UserGoal {
         this.status = status;
     }
 
-    public LocalDateTime getCompletedDate() {
-        return completedDate;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setCompletedDate(LocalDateTime completedDate) {
-        this.completedDate = completedDate;
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 } 
