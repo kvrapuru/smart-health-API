@@ -82,6 +82,7 @@ public class OpenApiConfig {
                     new Tag().name("Cycle Tracking").description("Menstrual cycle tracking and period management"),
                     new Tag().name("Health Logs").description("Weight, water, steps, and activity logging"),
                     new Tag().name("Nutrition").description("Food logging and nutritional tracking"),
+                    new Tag().name("Food Entry").description("Food intake tracking and nutritional analysis endpoints"),
                     new Tag().name("Goals").description("Personal health and fitness goal management"),
                     new Tag().name("Activities").description("Exercise and activity management"),
                     new Tag().name("Legacy").description("Legacy endpoints for backward compatibility")

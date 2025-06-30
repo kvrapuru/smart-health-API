@@ -30,6 +30,9 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/users/login").permitAll()
                 .requestMatchers("/api/users").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui.html").permitAll()
                 .requestMatchers("/api/users/me").authenticated()  // Require auth for profile
                 .requestMatchers("/api/users/search").authenticated()
                 .requestMatchers("/api/users/weightLogs").authenticated()

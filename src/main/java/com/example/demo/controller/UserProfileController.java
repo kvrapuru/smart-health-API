@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.Parameter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -49,6 +50,14 @@ public class UserProfileController {
         }
     }
 
+    @Operation(summary = "Update user profile", description = "Updates the profile of the currently authenticated user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully updated user profile",
+            content = @Content(schema = @Schema(implementation = User.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Error updating profile",
+            content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+    })
     @PutMapping
     public ResponseEntity<?> updateUserProfile(@RequestBody UserProfileUpdateRequest request) {
         try {
@@ -65,21 +74,46 @@ public class UserProfileController {
         }
     }
 
+    @Operation(summary = "Get user profile by user ID", description = "Retrieves the profile of a specific user by ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved user profile",
+            content = @Content(schema = @Schema(implementation = UserProfile.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "404", description = "User not found")
+    })
     @GetMapping("/user/{userId}/profile")
     public ResponseEntity<UserProfile> getUserProfile(
+            @Parameter(description = "User ID", required = true)
             @PathVariable Long userId,
+            @Parameter(description = "Date for profile (ISO format)")
             @RequestParam(required = false) String date) {
         LocalDateTime profileDate = date != null ? LocalDateTime.parse(date) : LocalDateTime.now();
         return ResponseEntity.ok(userProfileService.getUserProfile(userId, profileDate));
     }
 
+    @Operation(summary = "Create user profile", description = "Creates a new profile for a specific user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully created user profile",
+            content = @Content(schema = @Schema(implementation = UserProfile.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Invalid profile data")
+    })
     @PostMapping("/user/{userId}/profile")
     public ResponseEntity<UserProfile> createUserProfile(
+            @Parameter(description = "User ID", required = true)
             @PathVariable Long userId,
             @RequestBody UserProfile userProfile) {
         return ResponseEntity.ok(userProfileService.saveUserProfile(userProfile));
     }
 
+    @Operation(summary = "Create profile", description = "Creates a new profile")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully created profile",
+            content = @Content(schema = @Schema(implementation = UserProfile.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required"),
+        @ApiResponse(responseCode = "400", description = "Invalid profile data",
+            content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+    })
     @PostMapping
     public ResponseEntity<?> createProfile(@RequestBody UserProfile profile) {
         try {

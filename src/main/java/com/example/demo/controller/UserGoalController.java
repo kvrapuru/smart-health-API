@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.Parameter;
 
 import java.util.List;
 import java.time.LocalDateTime;
@@ -95,20 +96,38 @@ public class UserGoalController {
         }
     }
 
+    @Operation(summary = "Get user goals by user ID", description = "Retrieves all goals for a specific user with optional date range filtering")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved user goals",
+            content = @Content(schema = @Schema(implementation = UserGoal.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required")
+    })
     @GetMapping("/user/{userId}/goals")
     public ResponseEntity<List<UserGoal>> getUserGoals(
+            @Parameter(description = "User ID", required = true)
             @PathVariable Long userId,
+            @Parameter(description = "Start date (ISO format)")
             @RequestParam(required = false) String startDate,
+            @Parameter(description = "End date (ISO format)")
             @RequestParam(required = false) String endDate) {
         LocalDateTime start = startDate != null ? LocalDateTime.parse(startDate) : null;
         LocalDateTime end = endDate != null ? LocalDateTime.parse(endDate) : null;
         return ResponseEntity.ok(userGoalService.getUserGoals(userId, start, end));
     }
 
+    @Operation(summary = "Get active user goals by user ID", description = "Retrieves active goals for a specific user with optional date range filtering")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved active user goals",
+            content = @Content(schema = @Schema(implementation = UserGoal.class))),
+        @ApiResponse(responseCode = "401", description = "Unauthorized - Authentication required")
+    })
     @GetMapping("/user/{userId}/goals/active")
     public ResponseEntity<List<UserGoal>> getActiveUserGoals(
+            @Parameter(description = "User ID", required = true)
             @PathVariable Long userId,
+            @Parameter(description = "Start date (ISO format)")
             @RequestParam(required = false) String startDate,
+            @Parameter(description = "End date (ISO format)")
             @RequestParam(required = false) String endDate) {
         LocalDateTime start = startDate != null ? LocalDateTime.parse(startDate) : null;
         LocalDateTime end = endDate != null ? LocalDateTime.parse(endDate) : null;
